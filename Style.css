@@ -1,3 +1,7 @@
+*{
+	font-family: sans-sarif;
+	font-size: 20px;
+}
 div{
 	background-color: coral;
 	font-size: 50px;
