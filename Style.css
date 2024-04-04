@@ -1,7 +1,11 @@
 *{
 	font-family: sans-serif;
 	font-size: 20px;
+<<<<<<< Updated upstream
 /* 	font-s: 20px; */
+=======
+	font-style: curshive;
+>>>>>>> Stashed changes
 }
 div{
 	background-color: coral;
