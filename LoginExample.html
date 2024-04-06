@@ -2,36 +2,45 @@
 <html>
 <head>
   <title>Google Login Example</title>
+  
 </head>
 <body>
-  <button id="loginButton">Login with Google</button>
-
+  <button class="btn btn-primary" id="loginButton">Continue with Google</button>
+  <button id="githubLoginBtn" class="btn btn-primary">Login with GitHub</button>
+<!-- Google Authentication Start -->
   <script>
-    // Replace with your own client ID
     const CLIENT_ID = '557613003812-2l31vlt8ssr6n7fmv7j273fd5lbpm5ga.apps.googleusercontent.com';
 
-    // Function to handle the Google login
     function handleGoogleLogin() {
-      // Generate a random state string to prevent CSRF attacks
       const state = Math.random().toString(36).substring(7);
-
-      // Define the redirect URI
       const redirectUri = 'http://127.0.0.1:5501/LoginExample.html'; // Replace with your actual redirect URI
-
-      // Construct the Google login URL
       const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
         `client_id=${CLIENT_ID}&` +
         `redirect_uri=${encodeURIComponent(redirectUri)}&` +
         `response_type=token&` +
         `scope=email%20profile&` +
         `state=${state}`;
-
-      // Redirect the user to the Google login page
       window.location.href = googleLoginUrl;
     }
-
-    // Add a click event listener to the login button
     document.getElementById('loginButton').addEventListener('click', handleGoogleLogin);
   </script>
+  <!-- Github Authentication starts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+  <script>
+      $(document).ready(function() {
+      // GitHub OAuth settings
+      const clientId = 'b0e3afae37deb2f389b0';
+      const redirectUri = 'http://127.0.0.1:5501/GitHubAuth.html'; 
+
+      const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+        $('#githubLoginBtn').click(function() {
+            window.location.href = githubAuthUrl;
+        });
+    });
+  </script> 
+
+  <!-- </script> -->
 </body>
 </html>

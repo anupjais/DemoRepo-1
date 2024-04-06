@@ -88,4 +88,38 @@
 	</div>
 	<!-- Body Ends Here -->
 </body>
+
+<!-- Google Authentication Start -->
+  <script>
+    const CLIENT_ID = '557613003812-2l31vlt8ssr6n7fmv7j273fd5lbpm5ga.apps.googleusercontent.com';
+
+    function handleGoogleLogin() {
+      const state = Math.random().toString(36).substring(7);
+      const redirectUri = 'http://127.0.0.1:5501/LoginExample.html'; // Replace with your actual redirect URI
+      const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
+        `client_id=${CLIENT_ID}&` +
+        `redirect_uri=${encodeURIComponent(redirectUri)}&` +
+        `response_type=token&` +
+        `scope=email%20profile&` +
+        `state=${state}`;
+      window.location.href = googleLoginUrl;
+    }
+    document.getElementById('loginButton').addEventListener('click', handleGoogleLogin);
+  </script>
+  <!-- Github Authentication starts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+  <script>
+      $(document).ready(function() {
+      // GitHub OAuth settings
+      const clientId = 'b0e3afae37deb2f389b0';
+      const redirectUri = 'http://127.0.0.1:5501/GitHubAuth.html'; 
+
+      const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+        $('#githubLoginBtn').click(function() {
+            window.location.href = githubAuthUrl;
+        });
+    });
+  </script> 
 </html>
