@@ -31,7 +31,9 @@
       $(document).ready(function() {
       // GitHub OAuth settings
       const clientId = 'b0e3afae37deb2f389b0';
+      // const redirectUri = 'http://127.0.0.1:5501/GitHubAuth.html'; 
       const redirectUri = 'http://127.0.0.1:5501/GitHubAuth.html'; 
+
 
       const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
