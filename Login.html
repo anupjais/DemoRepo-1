@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Intro component with sign up form - Frontend Mentor">
+  <meta name="keywords" content="Intro component with sign up form,  Frontend Mentor">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <title>login page</title>
+  <link rel="stylesheet" href="login2.css">
+	
+</head>
+
+<body>
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- <%
+     String message =(String) request.getAttribute("message");
+     if(message!=null){
+      %>
+      <h2>
+          <%=message%>
+      </h2>
+    <%
+    }
+    %> -->
+    <!-- Info Section -->
+    <section class="info-section">
+
+    
+      <p   class="focus-in-expand-fwd">
+         Most Trusted Brand <b><i>PillPeek</i></b>
+         Buy Medicine At Low Price</p>
+    </section>
+    <section class="form-section">
+      <div class="m-container">
+		<button class="sales-btn">LOGIN </span>
+		</button>
+		<!-- Form -->
+		<form class="main-form">
+		 
+		  <!-- Email -->
+		  <div >
+			  <div class="input-field">
+				  <input class="user-email" type="email" placeholder="Email Address" name="email" id="email">
+				  <div class="user-email-error"></div>
+				  <label for="user-email" class="email-label"></label>
+				</div>
+				<!-- Password -->
+				<div class="input-field">
+				  <input class="user-pass user-email" type="password" placeholder="password" name="password" id="password">
+				  <div class="user-pass-error"></div>
+				  <label for="user-pass" class="pass-label"></label>
+				</div>
+		  </div>
+		  <div class="input-field">
+  
+			<button class="submit-info" id="submit-info" type="submit">Submit</button>
+			<button class="input-field" id="loginButton">Continue with Google</button>
+			  <button id="githubLoginBtn " class="input-field">Login with GitHub</button>
+			<label for="submit-info" class="success-msg"></label>
+		   
+		  </div>
+		  <label class="tnc" for="submit-info"><a href="#">Don't have account ?</a>
+		  </label>
+		</form>
+	  </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  
+<!-- Google Authentication Start -->
+  <script>
+    const CLIENT_ID = '557613003812-2l31vlt8ssr6n7fmv7j273fd5lbpm5ga.apps.googleusercontent.com';
+
+    function handleGoogleLogin() {
+      const state = Math.random().toString(36).substring(7);
+      const redirectUri = 'http://127.0.0.1:5501/LoginExample.html'; // Replace with your actual redirect URI
+      const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
+        `client_id=${CLIENT_ID}&` +
+        `redirect_uri=${encodeURIComponent(redirectUri)}&` +
+        `response_type=token&` +
+        `scope=email%20profile&` +
+        `state=${state}`;
+      window.location.href = googleLoginUrl;
+    }
+    document.getElementById('loginButton').addEventListener('click', handleGoogleLogin);
+  </script>
+  <!-- Github Authentication starts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+  <script>
+      $(document).ready(function() {
+      // GitHub OAuth settings
+      const clientId = 'b0e3afae37deb2f389b0';
+    //   const redirectUri = 'http://127.0.0.1:5501/GitHubAuth.html'; 
+	  const redirectUri = 'http://127.0.0.1:5501/Login.html'; 
+	  
+
+      const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+        $('#githubLoginBtn').click(function() {
+            window.location.href = githubAuthUrl;
+        });
+    });
+  </script> 
+</body>
+
+</html>
